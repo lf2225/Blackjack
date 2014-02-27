@@ -8,15 +8,20 @@ Hand1 = Hand()
 
 
 
-Deck1.DealOneCard()
 
 
 
-
-
-Hand1.DealHand()
+Hand1.DealHand(Deck1)
 
 print 'a sample players hand', Hand1.PlayerHand
+
+Hand1.DisplayHandValue()
+
+print 'the value of this hand is', Hand1.TotalHandValue
+
+Hand1.AddCard(Deck1)
+
+print 'the new hand value is', Hand1.TotalHandValue
 
 
 
