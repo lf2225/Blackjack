@@ -19,7 +19,10 @@ Hand1.DisplayHandValue()
 
 print 'the value of this hand is', Hand1.TotalHandValue
 
+#prints total hand value of two dealt cards
 Hand1.AddCard(Deck1)
+
+
 
 print 'the new hand value is', Hand1.TotalHandValue
 
