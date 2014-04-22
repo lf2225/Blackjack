@@ -13,11 +13,12 @@ class Deck(object):
 		print 'I am exiting the init routine of Deck'
 
 
+#will be a helper method to be called during gameplay over and over again
 #shuffle all 52 cards, return shuffled deck (new CardShoe)
 	def Shuffle(self):
 		self.ShuffleDeck = random.sample(self.CardShoe, 52)
-		
-		print "Print shuffleDeck", self.ShuffleDeck
+
+		print "The shuffled deck is: ", self.ShuffleDeck
 
 
 #interaction of the deck class, namely dealing cards to the assigned players
@@ -27,11 +28,6 @@ class Deck(object):
 		print "Deal card", self.OneCard
 
 		self.ShuffleDeck.remove(self.OneCard)
-		
+
 		print "deck with removed card", self.ShuffleDeck
 		return self.OneCard
-
-		
-		
-
- 

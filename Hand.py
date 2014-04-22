@@ -29,7 +29,7 @@ class Hand(object):
 		Card2 = Deck1.DealOneCard()
 		print "Deal Hand", Card1, Card2
 		self.PlayerHand = [Card1, Card2]
-		
+
 
 
 #conveniently display the status of a hand
@@ -58,7 +58,7 @@ class Hand(object):
 				HandValue = HandValue + ValueNewCard
 				if card = 'A' and HandValue < 10:
 					ValueNewCard = ValueDict[card[1]]
-	
+
 
 
 		Card1 = self.PlayerHand[0]
@@ -76,10 +76,10 @@ class Hand(object):
 		elif self.TotalHandValue > 16 and Card2[0] == 'A':
 			ValueCard2 = ValueDict[Card2[0]][0]'''
 
-		self.TotalHandValue = ValueCard1 + ValueCard2 
-			
+		self.TotalHandValue = ValueCard1 + ValueCard2
 
-#keep pullng random card until you have one that hasnt been dealt using an if not equal to dealt card 
+
+#keep pullng random card until you have one that hasnt been dealt using an if not equal to dealt card
 #inside a for statement running through the dictionary of cards
 
 
@@ -91,11 +91,11 @@ class Hand(object):
 			print ValueHitCard
 			self.PlayerHand.append(HitCard)
 			if HitCard[0] == 'A':
-				
+
 				ValueHitCard = ValueHitCard[1]
-			
+
 			self.TotalHandValue = self.TotalHandValue + ValueHitCard
-			
+
 
 			if self.TotalHandValue > 21:
 				if HitCard[0] == 'A':
@@ -103,11 +103,3 @@ class Hand(object):
 			elif self.TotalHandValue == 21:
 				print "Perfect"
 		#HitCard = Deck1.DealOneCard()
-		
-
-
-
-
-
-
-

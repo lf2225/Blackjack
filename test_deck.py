@@ -36,5 +36,3 @@ print 'the new hand value is', Hand1.TotalHandValue
 #	Deck1.DealOneCard()
 
 print 'print the rest of the deck', Deck1.ShuffleDeck
-
-

@@ -23,7 +23,6 @@ def Turn():
 
 Hand =
 
-Money = 
+Money =
 
 #based on the running sum, stand/hit
-
