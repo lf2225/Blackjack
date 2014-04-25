@@ -1,0 +1,29 @@
+to do list
+
+-Have a fully functioning blackjack game
+
+-Statistically compute the odds of each player wining
+
+-Make an AI for each player, with different stategies
+
+-make a virtual currency type of betting (later to be cryptocurrency)
+
+
+
+
+make sure deck and hand are solid, update my test program to go through the loop of dealing on hits, and counting cards
+
+figure out the differentce between Decision and PlayerTurn
+
+put in print statements for debugging purposes
+
+make a comprehensible flow chart
+
+before you get to the players turn, let the players know what card the dealer has (needs to be available to player in general)
+
+
+
+
+
+
+see where the deck is not gettint shortened, write teh notes of what gets done in what order, and use print statemts for htat.  see where the deck is getting shortened...why
