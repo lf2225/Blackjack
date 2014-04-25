@@ -27,8 +27,6 @@ class Hand(object):
 	def deal_hand(self, Deck1):
 		Card1 = Deck1.deal_one_card()
 		Card2 = Deck1.deal_one_card()
-		print "Deal Hand for Player", i
-		#remove later
 		print Card1, Card2
 		self.PlayerHand = [Card1, Card2]
 
@@ -36,12 +34,12 @@ class Hand(object):
 #helper method to figure out the value of aces in hand
 	def ace_count(self):
 		HighAce = False
-		if len(PlayerHand) <= 2:
+		if len(self.PlayerHand) <= 2:
 			for card in self.PlayerHand:
 				#one ace in the initial hand, always ace high
-				if ValueDict[PlayerHand[0][0]] == 11 or ValueDict[PlayerHand[1][0]] == 11:
+				if ValueDict[self.PlayerHand[0][0]] == 11 or ValueDict[self.PlayerHand[1][0]] == 11:
 					HighAce = True
-					if ValueDict[PlayerHand[0][0]] == 11 and ValueDict[PlayerHand[1][0]] == 11:
+					if ValueDict[self.PlayerHand[0][0]] == 11 and ValueDict[self.PlayerHand[1][0]] == 11:
 						#set one to 11, set the other to 1, no order required
 						ValueDict[Ok]
 		else:
@@ -64,9 +62,9 @@ class Hand(object):
 	def display_hand_value(self):
 		TotalHandValue = 0
 		for card in self.PlayerHand:
-			ValueCard = ValueDict[self.PlayerHand[0]
-			ValueCard1 = ValueDict[Card1[0]]
-			ValueCard2 = ValueDict[Card2[0]]
+			ValueCard1 = ValueDict[self.PlayerHand[0][0]]
+			ValueCard2 = ValueDict[self.PlayerHand[1][0]]
+
 
 		'''if self.TotalHandValue <= 16 and Card1[0] == 'A':
 			ValueCard1 = ValueDict[Card1[0]][1]
@@ -86,17 +84,14 @@ class Hand(object):
 #add a card to a current, ie HIT, also call it twice in the original hand dealing
 	def add_card(self, Deck1):
 		while self.TotalHandValue <= 16:
-			HitCard = Deck1.DealOneCard()
+			HitCard = Deck1.deal_one_card()
 			ValueHitCard = ValueDict[HitCard[0]]
 			print ValueHitCard
 			self.PlayerHand.append(HitCard)
-			if HitCard[0] == 'A':
-
-				ValueHitCard = ValueHitCard[1]
+			print self.PlayerHand
+			
 			self.ace_count()
 			self.TotalHandValue = self.TotalHandValue + ValueHitCard
-
-
 			if self.TotalHandValue == 21:
 				print "Perfect"
 		#HitCard = Deck1.DealOneCard()

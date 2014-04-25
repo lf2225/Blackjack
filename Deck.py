@@ -9,7 +9,7 @@ class Deck(object):
 		print 'I am entering the init routine of Deck'
 		self.CardShoe = tuple(''.join(card) for card in itertools.product(Ranks, Suits))
 		self.NumberOfCards = len(self.CardShoe)
-		self.Shuffle()
+		self.shuffle()
 		print 'I am exiting the init routine of Deck'
 
 
@@ -22,7 +22,7 @@ class Deck(object):
 
 
 #interaction of the deck class, namely dealing cards to the assigned players
-	def dea_one_card(self):
+	def deal_one_card(self):
 		print 'I am at the start of the DealOneCard routine'
 		self.OneCard = (random.sample(self.ShuffleDeck, 1))[0]
 		print "Deal card", self.OneCard
