@@ -15,14 +15,14 @@ class Deck(object):
 
 #will be a helper method to be called during gameplay over and over again
 #shuffle all 52 cards, return shuffled deck (new CardShoe)
-	def Shuffle(self):
+	def shuffle(self):
 		self.ShuffleDeck = random.sample(self.CardShoe, 52)
 
 		print "The shuffled deck is: ", self.ShuffleDeck
 
 
 #interaction of the deck class, namely dealing cards to the assigned players
-	def DealOneCard(self):
+	def dea_one_card(self):
 		print 'I am at the start of the DealOneCard routine'
 		self.OneCard = (random.sample(self.ShuffleDeck, 1))[0]
 		print "Deal card", self.OneCard
