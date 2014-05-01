@@ -63,6 +63,12 @@ class Hand(object):
 								self.TotalhandValue = self.TotalHandValue + 10
 								print 'It made sense to up one ace to 11'
 
+
+								
+	def five_card_charlie():
+		#tests if self.PlayerHand reached 5 cards.  helper method to be called from add_card routine
+		pass
+
 #conveniently display the status of a hand
 #initialize the dictionary  (J, Spades...) = (11,1...)
 	def display_hand_value(self):
