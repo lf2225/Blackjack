@@ -64,10 +64,12 @@ class Hand(object):
 								print 'It made sense to up one ace to 11'
 
 
-								
+
 	def five_card_charlie():
 		#tests if self.PlayerHand reached 5 cards.  helper method to be called from add_card routine
-		pass
+		if len(self.PlayerHand) == 5:
+			print 'Five Card Charlie, You AUTOWIN!'
+			
 
 #conveniently display the status of a hand
 #initialize the dictionary  (J, Spades...) = (11,1...)

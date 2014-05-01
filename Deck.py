@@ -18,6 +18,9 @@ class Deck(object):
 	def shuffle(self):
 		self.ShuffledDeck = random.sample(self.CardShoe, 52)
 
+		#test deck scenario
+		self.ShuffledDeck = ['6d', '7s', 'Ah'] * 20
+
 		#print "The shuffled deck is: ", self.ShuffledDeck
 
 
