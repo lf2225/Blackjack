@@ -17,10 +17,10 @@ ValueDict = {'2':2,
 
 class Hand(object):
 	def __init__(self):
-		print 'I am entering the init routine of Hand'
+		#print 'I am entering the init routine of Hand'
 		self.TotalHandValue = 0
 		self.PlayerHand = []
-		print 'I am exiting the init routine of Hand'
+		#print 'I am exiting the init routine of Hand'
 
 
 #initial dealing of the hand, calls the AddCard method twice
@@ -35,19 +35,25 @@ class Hand(object):
 	def ace_count(self):
 		HighAce = False
 		if len(self.PlayerHand) <= 2:
+			print 'I have two cards'
 			for card in self.PlayerHand:
 				#one ace in the initial hand, always ace high
 				if ValueDict[self.PlayerHand[0][0]] == 11 or ValueDict[self.PlayerHand[1][0]] == 11:
 					HighAce = True
 					if ValueDict[self.PlayerHand[0][0]] == 11 and ValueDict[self.PlayerHand[1][0]] == 11:
 						#set one to 11, set the other to 1, no order required
-						ValueDict[Ok]
+						HighAce = True
+						ValueDict[self.PlayerHand[1][0]] == 1
 		else:
 			#if total is more than 21, reduce all aces to 1
+			print "I have more than two cards"
 			for card in self.PlayerHand:
 				if self.TotalHandValue > 21:
 					for card in self.PlayerHand:
-						if ValueDict[card] == 11:
+						number_of_aces = 0
+						if ValueDict[card[0]] == 11:
+							number_of_aces += 1
+							print "I have", number_of_aces, "aces"
 							HighAce = False
 							self.TotalHandValue = self.TotalHandValue - 10
 							print 'Aces have been reduced from 11 to 1'
@@ -57,13 +63,23 @@ class Hand(object):
 								self.TotalhandValue = self.TotalHandValue + 10
 								print 'It made sense to up one ace to 11'
 
+
+
+	def five_card_charlie():
+		#tests if self.PlayerHand reached 5 cards.  helper method to be called from add_card routine
+		if len(self.PlayerHand) == 5:
+			print 'Five Card Charlie, You AUTOWIN!'
+			
+
 #conveniently display the status of a hand
 #initialize the dictionary  (J, Spades...) = (11,1...)
 	def display_hand_value(self):
+		self.ace_count()
 		TotalHandValue = 0
 		for card in self.PlayerHand:
-			ValueCard1 = ValueDict[self.PlayerHand[0][0]]
-			ValueCard2 = ValueDict[self.PlayerHand[1][0]]
+			# ValueCard1 = ValueDict[self.PlayerHand[0][0]]
+			# ValueCard2 = ValueDict[self.PlayerHand[1][0]]
+			TotalHandValue += ValueDict[card[0][0]]
 
 
 		'''if self.TotalHandValue <= 16 and Card1[0] == 'A':
@@ -74,8 +90,8 @@ class Hand(object):
 			ValueCard1 = ValueDict[Card1[0]][0]
 		elif self.TotalHandValue > 16 and Card2[0] == 'A':
 			ValueCard2 = ValueDict[Card2[0]][0]'''
-		self.ace_count()
-		self.TotalHandValue = ValueCard1 + ValueCard2
+		# self.ace_count()
+		self.TotalHandValue = TotalHandValue
 
 #keep pullng random card until you have one that hasnt been dealt using an if not equal to dealt card
 #inside a for statement running through the dictionary of cards
@@ -83,15 +99,20 @@ class Hand(object):
 
 #add a card to a current, ie HIT, also call it twice in the original hand dealing
 	def add_card(self, Deck1):
+		print 'add card routine start'
 		while self.TotalHandValue <= 16:
 			HitCard = Deck1.deal_one_card()
 			ValueHitCard = ValueDict[HitCard[0]]
-			print ValueHitCard
+			print HitCard
 			self.PlayerHand.append(HitCard)
 			print self.PlayerHand
-			
-			self.ace_count()
 			self.TotalHandValue = self.TotalHandValue + ValueHitCard
+
+			self.ace_count()
 			if self.TotalHandValue == 21:
 				print "Perfect"
+			elif self.TotalHandValue > 21:
+				print 'BUST'
+			else:
+				print 'DO YOU WANT TO HIT?'
 		#HitCard = Deck1.DealOneCard()
