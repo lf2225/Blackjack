@@ -12,7 +12,6 @@ class Player(object)
 		self.CurrentHand = Hand()
 
 
-
 def Turn():
 	while Hand.TotalHandValue =< 16:
 		NewCard = Deck.DealOneCard()
