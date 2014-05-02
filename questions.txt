@@ -1,0 +1,11 @@
+mutliple players and a dealer, multiple players input-configurable, fix at two players to begin
+
+Deck object will pick random cards out of 52, deal to x (input) amount of players, deal one card at a time without replacement.
+
+fix at 6 decks
+
+
+
+set up a greenfelt class, one dealer mutlple players
+
+
