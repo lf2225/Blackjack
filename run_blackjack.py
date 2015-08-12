@@ -21,4 +21,5 @@ else:
         hand.add_card(Deck_one)
         print 'the End hand value is', hand.TotalHandValue, "\n\n"
 
-    print 'The rest of the deck is', Deck_one.ShuffledDeck
+    print 'The rest of the deck has' , len(Deck_one.ShuffledDeck),'cards\n\n
+    #print 'Which are', Deck_one.ShuffledDeck

@@ -3,7 +3,14 @@ from Deck import Deck
 #move this to the main program later
 def user_input():
 	global UserDecision
-	UserDecision = raw_input("Hit (H) or Stand (S)?   ")
+
+	while True:
+		UserDecision = raw_input("Hit (H) or Stand (S)?   ")
+
+		if not(UserDecision is "H" or UserDecision is "S"):
+			print "Please type 'H' or 'S'"
+		else:
+			break
 
 ValueDict = {'2':2,
 			 '3':3,
@@ -29,7 +36,7 @@ class Hand(object):
 	def deal_hand(self, Deck1):
 		Card1 = Deck1.deal_one_card()
 		Card2 = Deck1.deal_one_card()
-		print Card1, Card2
+		print "\n\n", Card1, Card2
 
 		#initialize user input helper function
 		user_input()
@@ -63,7 +70,7 @@ class Hand(object):
 						print "I have ", number_of_aces, " Aces"
 						HighAce = False
 						self.TotalHandValue = self.TotalHandValue - 10
-						print 'Aces have been reduced from 11 to 1 and you new hand value is', self.TotalHandValue
+						print 'Aces have been reduced from 11 to 1 and you new hand value is', self.TotalHandValue, "\n"
 						first_aces_decision = raw_input("Hit (H) or Stand (S)?   ")
 						print self.TotalHandValue
 						if first_aces_decision == 'H' and self.TotalHandValue < 20:
