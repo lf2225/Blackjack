@@ -1,8 +1,3 @@
-
-
-
-
-
 class Greenfelt(object)
 	def __init__(self):
 		self.PlayerList = []
@@ -17,8 +12,8 @@ class Greenfelt(object)
 	def PlayerTurn
 #cycle through players
 
-	def Decision 
-#same decisin for all players, (as the normal dealer strategy) including the dealer, 
+	def Decision
+#same decisin for all players, (as the normal dealer strategy) including the dealer,
 #special decision for strategy player
 
 
@@ -32,25 +27,3 @@ class Greenfelt(object)
 
 
 ActualDealer = Dealer()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
