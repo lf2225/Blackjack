@@ -73,35 +73,12 @@ class Hand(object):
 						elif first_aces_decision == 'H' and self.TotalHandValue > 20:
 							print 'AutoStand with ', self.TotalHandValue,' for Safety'
 
-
-#USE LATER TO MAKE SURE NOT MORE THAN 5 CARDS ARE DEALT
-	# def five_card_charlie(self):
-	# 	global Charlie
-	# 	#tests if self.PlayerHand reached 5 cards.  helper method to be called from add_card routine
-	# 	if len(self.PlayerHand) == 5:
-	# 		Charlie = True
-	# 	else:
-	# 		Charlie = False
-
-
 #conveniently display the status of a hand
 	def display_hand_value(self):
 		self.ace_count()
 		TotalHandValue = 0
 		for card in self.PlayerHand:
 			self.TotalHandValue += ValueDict[card[0]]
-
-#logic for automated hand dealing for potential use later
-
-		'''if self.TotalHandValue <= 16 and Card1[0] == 'A':
-			ValueCard1 = ValueDict[Card1[0]][1]
-		elif self.TotalHandValue <= 16 and Card2[0] == 'A':
-			ValueCard2 = ValueDict[Card2[0]][1]
-		elif self.TotalHandValue > 16 and Card1[0] == 'A':
-			ValueCard1 = ValueDict[Card1[0]][0]
-		elif self.TotalHandValue > 16 and Card2[0] == 'A':
-			ValueCard2 = ValueDict[Card2[0]][0]'''
-
 
 
 #add a card to a current hand, ie HIT, also call it twice in the original hand dealing
