@@ -1,18 +1,12 @@
-from Deck import *
-from Hand import *
+from Deck import Deck
+from Hand import Hand
 
 Deck1 = Deck()
 
 Hand1 = Hand()
 Hand2 = Hand()
 # DealerHand = Hand
-
-
-
-
-
-
-#Player1
+# Player1
 
 Hand1.deal_hand(Deck1)
 

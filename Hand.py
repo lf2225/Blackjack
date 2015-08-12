@@ -1,4 +1,14 @@
-from Deck import *
+from Deck import Deck
+
+UserDecision = ""
+
+# #move this to the main program later
+# def user_input():
+# 		try:
+#
+# 		except (TypeError, ValueError):
+# 			print "Not H or S"
+# 		return UserDecision
 
 
 ValueDict = {'2':2,
@@ -17,33 +27,35 @@ ValueDict = {'2':2,
 
 class Hand(object):
 	def __init__(self):
-		#print 'I am entering the init routine of Hand'
 		self.TotalHandValue = 0
 		self.PlayerHand = []
-		#print 'I am exiting the init routine of Hand'
-
 
 #initial dealing of the hand, calls the AddCard method twice
 	def deal_hand(self, Deck1):
 		Card1 = Deck1.deal_one_card()
 		Card2 = Deck1.deal_one_card()
 		print Card1, Card2
+		# UserDecision = raw_input("Hit (H) or Stand (S)?   ")
 		self.PlayerHand = [Card1, Card2]
-
-
+		# print UserDecision == 'S'
+		ValueFirstCard = ValueDict[self.PlayerHand[0][0]]
+		ValueSecondCard = ValueDict[self.PlayerHand[1][0]]
+		UserDecision = raw_input("Hit (H) or Stand (S)?   ")
 #helper method to figure out the value of aces in hand
 	def ace_count(self):
 		HighAce = False
-		if len(self.PlayerHand) <= 2:
-			print 'I have two cards'
+		print len(self.PlayerHand)
+		print UserDecision
+		if len(self.PlayerHand) == 2 and UserDecision == "S":
+			print 'I stay with two cards'
 			for card in self.PlayerHand:
-				#one ace in the initial hand, always ace high
-				if ValueDict[self.PlayerHand[0][0]] == 11 or ValueDict[self.PlayerHand[1][0]] == 11:
+				#If one ace in the initial hand, then it is always a high ace (11)
+				if ValueFirstCard == 11 or ValueSecondCard == 11:
 					HighAce = True
-					if ValueDict[self.PlayerHand[0][0]] == 11 and ValueDict[self.PlayerHand[1][0]] == 11:
+					if ValueFirstCard == 11 and ValueSecondCard == 11:
 						#set one to 11, set the other to 1, no order required
 						HighAce = True
-						ValueDict[self.PlayerHand[1][0]] == 1
+						ValueFirstCard = 1
 		else:
 			#if total is more than 21, reduce all aces to 1
 			print "I have more than two cards"
@@ -65,11 +77,13 @@ class Hand(object):
 
 
 
-	def five_card_charlie():
+	def five_card_charlie(self):
 		#tests if self.PlayerHand reached 5 cards.  helper method to be called from add_card routine
 		if len(self.PlayerHand) == 5:
-			print 'Five Card Charlie, You AUTOWIN!'
-			
+			return True
+		else:
+			return False
+
 
 #conveniently display the status of a hand
 #initialize the dictionary  (J, Spades...) = (11,1...)
@@ -97,22 +111,31 @@ class Hand(object):
 #inside a for statement running through the dictionary of cards
 
 
-#add a card to a current, ie HIT, also call it twice in the original hand dealing
+#add a card to a current hand, ie HIT, also call it twice in the original hand dealing
 	def add_card(self, Deck1):
 		print 'add card routine start'
-		while self.TotalHandValue <= 16:
-			HitCard = Deck1.deal_one_card()
-			ValueHitCard = ValueDict[HitCard[0]]
-			print HitCard
-			self.PlayerHand.append(HitCard)
-			print self.PlayerHand
-			self.TotalHandValue = self.TotalHandValue + ValueHitCard
+		#while self.TotalHandValue <= 21:
+		while UserDecision == "H":
+				HitCard = Deck1.deal_one_card()
+				ValueHitCard = ValueDict[HitCard[0]]
+				print HitCard
+				self.PlayerHand.append(HitCard)
+				print "the new hand is ", self.PlayerHand
+				self.TotalHandValue = self.TotalHandValue + ValueHitCard
+				self.ace_count()
+				self.display_hand_value()
 
-			self.ace_count()
+				if self.TotalHandValue == 21:
+					print "Perfect"
+				elif self.TotalHandValue < 21 & self.five_card_charlie:
+					print "Five Card Charlie"
+				elif self.TotalHandValue > 21:
+					print 'BUST'
+
+		if UserDecision == 'S':
 			if self.TotalHandValue == 21:
 				print "Perfect"
 			elif self.TotalHandValue > 21:
 				print 'BUST'
 			else:
-				print 'DO YOU WANT TO HIT?'
-		#HitCard = Deck1.DealOneCard()
+				print 'You decided to stand with ', self.TotalHandValue
