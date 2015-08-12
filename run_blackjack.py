@@ -11,10 +11,8 @@ else:
     hand_obj_list = [Hand() for x in range(number_of_hands)]
 
     for hand in hand_obj_list:
-
         #Player1
         hand.deal_hand(Deck_one)
-
         #print 'a sample player (1) hand', obj.PlayerHand
         hand.display_hand_value()
 
